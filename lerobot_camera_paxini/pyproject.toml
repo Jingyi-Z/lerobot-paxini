@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lerobot_camera_paxini"
+version = "0.1.0"
+description = "Paxini PX-6AX GEN3 tactile sensors (all variants, 9-239 taxels) as LeRobot cameras"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Jingyi Zou" }]
+# No required runtime deps: installing must not re-resolve lerobot or numpy.
+dependencies = []
+
+[project.optional-dependencies]
+paxini = ["paxini-sdk>=0.1.0"]
+dev = ["pytest", "numpy"]
+
+[tool.setuptools.packages.find]
+include = ["lerobot_camera_paxini*"]

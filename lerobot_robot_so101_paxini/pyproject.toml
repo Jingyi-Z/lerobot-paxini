@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lerobot_robot_so101_paxini"
+version = "0.1.0"
+description = "SO-101 follower with Paxini PX-6AX GEN3 tactile fingertips, as a LeRobot robot plugin"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Jingyi Zou" }]
+# No required runtime deps on purpose: installing must not re-resolve lerobot or numpy.
+# paxini-sdk is imported lazily and pinned as an optional extra until it is on PyPI.
+dependencies = []
+
+[project.optional-dependencies]
+paxini = ["paxini-sdk>=0.1.0"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["lerobot_robot_so101_paxini*"]

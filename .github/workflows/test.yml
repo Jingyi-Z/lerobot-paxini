@@ -1,0 +1,14 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install lerobot paxini-sdk pytest numpy
+      - run: pip install -e lerobot_camera_paxini -e lerobot_robot_so101_paxini
+      - run: cd lerobot_camera_paxini && pytest -q tests
+      - run: cd lerobot_robot_so101_paxini && pytest -q tests
