@@ -1,11 +1,13 @@
 # lerobot-paxini
 
-LeRobot plugins for [Paxini](https://www.paxini.com/) PX-6AX GEN3 tactile sensors. Both install on stock [lerobot](https://github.com/huggingface/lerobot) (0.6.2 or later) with no changes to lerobot itself, via its third-party plugin discovery.
+LeRobot plugins for [Paxini](https://www.paxini.com/) PX-6AX GEN3 tactile sensors. Both install on stock [lerobot](https://github.com/huggingface/lerobot) (0.6.1 or later) with no changes to lerobot itself, via its third-party plugin discovery.
 
 | Package | PyPI | What it does |
 |---|---|---|
 | [lerobot_camera_paxini](lerobot_camera_paxini/) | `pip install lerobot_camera_paxini` | Any GEN3 sensor (9 to 239 taxels) as a LeRobot camera. Force-vector or heatmap images, both communication boards. |
-| [lerobot_robot_so101_paxini](lerobot_robot_so101_paxini/) | source install | SO-101 follower arm with GEN3 fingertips. Tactile as float32 state features alongside normal cameras. |
+| [lerobot_robot_so101_paxini](lerobot_robot_so101_paxini/) | `pip install lerobot_robot_so101_paxini` | SO-101 follower arm with GEN3 fingertips. Tactile as float32 state features alongside normal cameras. |
+
+The camera plugin is listed in LeRobot's [third-party sensors documentation](https://huggingface.co/docs/lerobot/main/en/third_party_sensors).
 
 Both build on [paxini-sdk](https://github.com/Jingyi-Z/paxini-sdk) (`pip install paxini-sdk`), a pure-Python driver for the GEN3 communication boards.
 
@@ -29,11 +31,16 @@ lerobot-record \
 ## Quick start, robot
 
 ```bash
-pip install lerobot paxini-sdk
-pip install -e lerobot_robot_so101_paxini
+pip install lerobot paxini-sdk lerobot_robot_so101_paxini
 ```
 
 See each package's `docs/USER_GUIDE.md` for configuration and troubleshooting and `docs/TECHNICAL.md` for design notes. `smoke_camera.py` is a hardware smoke test for the camera plugin that needs no lerobot environment.
+
+## Hardware
+
+Printable SO-101 jaws with seats for two DP-S2015-Elite fingertips, plus a full build and wiring guide, are in [hardware/](hardware/INSTALL.md).
+
+![Tactile SO-101 gripper](hardware/photos/installed_gripper.jpg)
 
 ## License
 
